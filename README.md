@@ -8,8 +8,10 @@
 В пропсах есть запись, указывающая на источников пропсов приложения  
 spring.config.import=optional:configserver:http://localhost:8888  
 В приложении есть класс, который в свои атрибуты забирает значения из пропсов  
-src/main/java/com/github/thecoolersuptelov/limitsservice/configuration/Configuration.java  
-  
+src/main/java/com/github/thecoolersuptelov/limitsservice/configuration/Configuration.java    
+Задать имя файла пропосов можно в конфиге сервиса через: `spring.cloud.config.name`
+
+
 Описание цепочки:  
 git repo --> Клауд Конфиг сервер --> Сервис.  
   
