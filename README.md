@@ -43,3 +43,10 @@ URL для запроса http://localhost:8000/currency-exchange/from/USD/to/IN
 Добавил репо для хранения. 
 Из интересного, оказывает не надо прикручивать flyway для контроля ddl, достаточно использовать schema для DDL  
 и data для генерации данных.
+  
+  
+  
+Файловый путь проектов  
+D:\java\petProjects\cloud\limits-service  
+D:\java\petProjects\limits-service  
+D:\java\petProjects\spring-cloud-config-server
