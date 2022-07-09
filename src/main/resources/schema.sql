@@ -1,0 +1,1 @@
+create table currency_exchange (id binary(255) not null, convertion_multiple bigint, enviroment varchar(255), from_currency varchar(255), to_currency varchar(255), primary key (id))
