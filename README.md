@@ -1,6 +1,6 @@
 # Read Me First
-На местном сленге пропсы - *.properties
-Связанные репо:
+На местном сленге пропсы - *.properties  
+Связанные репо:  
     1. Наш богоподоный сервис: [https://github.com/TheCoolerSuptelov/limit-service]
     2. Великолепный клауд конфиг сервер: [https://github.com/TheCoolerSuptelov/limit-service-configServer]
     3. Несравненный файл с пропсами: [https://github.com/TheCoolerSuptelov/limits-service]
