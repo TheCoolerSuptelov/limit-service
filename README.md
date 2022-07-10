@@ -34,19 +34,32 @@ git repo --> Клауд Конфиг сервер --> Сервис.
 Для этого нужно разместить в репо `limits-service` несколько пропсов, в моем примере это `qa&dev`  
 После пуша в репо, сервер перечитает значения и сможет представлять их по урлу: `http://localhost:8888/limits-service/{profileName}`  
 Если указать в пропсах сервиса `spring.profiles.active=dev` - сервис будет использовать пропсы, полученные по профилю, 
-который предоставил сервер.  
-  
+который предоставил сервер.
+
 # Переход к exchange server
+
 Так-так-так.  
 Сделали контроллер для обмена валютов (только показываем).  
 URL для запроса http://localhost:8000/currency-exchange/from/USD/to/INR
-Добавил репо для хранения. 
+Добавил репо для хранения.
 Из интересного, оказывает не надо прикручивать flyway для контроля ddl, достаточно использовать schema для DDL  
 и data для генерации данных.
-  
-  
-  
+
+# Добавлние второго сервиса Currency conversion service.
+
+server.port=8100
+Живет тут: https://github.com/TheCoolerSuptelov/currency-convertion-service
+D:\java\petProjects\currency-convertion-service
+
+# Реализация OpenFeign
+
+Пишем прокси сервиса, из которого хотим получать данные. В нашем случае это:  
+https://github.com/TheCoolerSuptelov/currency-convertion-service/tree/main/src/main/java/com/github/thecoolersuptelov/currencyconvertionservice/proxy
+Полностью копируем метод, который будем вызывать.
+Готово, каренси конвершн сервис тянет данные из эксчэнж сервиса курсы для конвертации валют
+
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
 D:\java\petProjects\spring-cloud-config-server
+D:\java\petProjects\currency-convertion-service
