@@ -63,3 +63,20 @@ D:\java\petProjects\cloud\limits-service
 D:\java\petProjects\limits-service  
 D:\java\petProjects\spring-cloud-config-server
 D:\java\petProjects\currency-convertion-service
+
+# Ключевые УРЛЫ проекты
+
+Пример работы CurrencyConversion-->CurrencyExchange через OpenFeign
+http://localhost:6001/currency-convertion-feign/from/USD/to/INR/quantity/9
+
+Пример работы CurrencyExchange   
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+Пример работы Config Server  
+http://localhost:8888/limits-service/default
+
+Пример работы CurrencyConversion:  
+http://localhost:6001/from/USD/to/INR/quantity/9
+
+Пример работы Eureka Server:  
+http://localhost:8761/
