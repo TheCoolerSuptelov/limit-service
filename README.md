@@ -78,6 +78,12 @@ http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
 http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
 Где localhost:8765 - api GateWay.
 
+# Строим дороги (routes) сами
+
+Запросы в gateWay можно перехватывать и обрабатывать как нашей душе угодно.  
+Пример:  
+`https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/ApiGatewayConfiguration.java`
+
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
