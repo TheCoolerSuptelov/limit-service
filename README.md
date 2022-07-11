@@ -58,6 +58,16 @@ https://github.com/TheCoolerSuptelov/currency-convertion-service/tree/main/src/m
 Полностью копируем метод, который будем вызывать.
 Готово, каренси конвершн сервис тянет данные из эксчэнж сервиса курсы для конвертации валют
 
+# Использование Eureka для навигации сервисов
+
+В проекте currency-conversion есть реализация OpenFeign клиента, который позволяет "красиво"  
+связывать сервисы между собой. До этого момента там указан статический УРЛ сервиса Currency-exachange.  
+Так как оба сервиса зарегистрированы в Eureka (через указание в пропсах eureka.client.serviceUrl.defaultZone)  
+мы можем в OpenFeign указать не статический адрес сервиса, а имя приложения, с которым хотим взаимодействовать:  
+Пример изменения по ссылке:
+
+https://github.com/TheCoolerSuptelov/currency-convertion-service/blob/main/src/main/java/com/github/thecoolersuptelov/currencyconvertionservice/proxy/CurrencyExchange.java
+
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
