@@ -68,6 +68,16 @@ https://github.com/TheCoolerSuptelov/currency-convertion-service/tree/main/src/m
 
 https://github.com/TheCoolerSuptelov/currency-convertion-service/blob/main/src/main/java/com/github/thecoolersuptelov/currencyconvertionservice/proxy/CurrencyExchange.java
 
+# Api-Gateway
+
+Для использовании api-gateWay нам нужен апи gateWay и прибить его связать его с EUREKA
+После чего все сервисы зарегистрированные в Eureka будут доступны по API gateWay
+Свойство для связывания gateWay и Eureka: `eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka`  
+Обращения к сервисам преобразуется в:  
+http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR  
+http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
+Где localhost:8765 - api GateWay.
+
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
