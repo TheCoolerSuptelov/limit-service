@@ -88,6 +88,13 @@ http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
 Так же есть возможность добавлять свои фильтры в запросы:
 `https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/LoggingFilter.java`
   По сути развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку, логирование запросом и пр.
+  
+  
+  
+# resilience4j  
+resilience4j - CircuitBreaker - паттерн работы с ошибками:
+Circuit Breaker выступает как прокси-сервис между приложением и удаленным сервисом. Прокси-сервис мониторит последние возникшие ошибки, для определения, можно ли выполнить операцию или просто сразу вернуть ошибку.  
+
 
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  

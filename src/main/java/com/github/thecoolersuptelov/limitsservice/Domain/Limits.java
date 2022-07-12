@@ -27,4 +27,12 @@ public class Limits {
     public void setMax(Integer max) {
         this.max = max;
     }
+
+    @Override
+    public String toString() {
+        return "Limits{" +
+                "min=" + min +
+                ", max=" + max +
+                '}';
+    }
 }
