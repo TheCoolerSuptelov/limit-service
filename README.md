@@ -83,6 +83,11 @@ http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
 Запросы в gateWay можно перехватывать и обрабатывать как нашей душе угодно.  
 Пример:  
 `https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/ApiGatewayConfiguration.java`
+  
+  
+Так же есть возможность добавлять свои фильтры в запросы:
+`https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/LoggingFilter.java`
+  По сути развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку, логирование запросом и пр.
 
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
