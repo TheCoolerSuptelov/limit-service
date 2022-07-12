@@ -2,6 +2,7 @@ package com.github.thecoolersuptelov.limitsservice.controllers;
 
 import com.github.thecoolersuptelov.limitsservice.Domain.Limits;
 import com.github.thecoolersuptelov.limitsservice.configuration.Configuration;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +19,8 @@ public class CircuitBreakerController {
     private Configuration configuration;
 
     @GetMapping("/sample-api")
-    @Retry(name = "default", fallbackMethod = "fallbackForSampleApi")
+    @Retry(name = "sample-api", fallbackMethod = "fallbackForSampleApi")
+//    @CircuitBreaker(name = "default", fallbackMethod = "fallbackForSampleApi")
     public String sampleApi(){
         logger.info("Api call received");
         var someFailedRequest = new RestTemplate().getForEntity("http://localhost:9299/failedRequest", String.class);
