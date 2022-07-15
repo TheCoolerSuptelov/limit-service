@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  currency-exchange:
+    image: kirillsuptelov/mmv2-limits-service:0.0.1-SNAPSHOT
+    ports:
+      - "8000:8000"
+    networks:
+      - currency-network
+
+networks:
+  currency-network:
