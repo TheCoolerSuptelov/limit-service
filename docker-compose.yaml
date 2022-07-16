@@ -18,14 +18,15 @@ services:
       - "8761:8761"
     networks:
       - currency-network
-  currency-convertion-service:
-    image: kirillsuptelov/mmv2-currency-convertion-service:0.0.1-SNAPSHOT
+  currency-conversion-service:
+    image: kirillsuptelov/mmv2-currency-conversion-service:0.0.1-SNAPSHOT
     ports:
-      - "6001:6001"
+      - "8100:8100"
     networks:
       - currency-network
     depends_on:
       - naming-server
+      - currency-exchange
     environment:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411
