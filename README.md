@@ -6,11 +6,11 @@
 
 На местном сленге пропсы - *.properties  
 Связанные репо:  
-1. Наш богоподоный сервис: [https://github.com/TheCoolerSuptelov/limit-service] 
+1. Наш богоподобный сервис: [https://github.com/TheCoolerSuptelov/limit-service] 
 2. Великолепный клауд конфиг сервер: [https://github.com/TheCoolerSuptelov/limit-service-configServer] 
 3. Несравненный файл с пропсами: [https://github.com/TheCoolerSuptelov/limits-service] 
 Один из сервисов, который зависит от клауд конфиг сервера.  
-В пропсах есть запись, указывающая на источников пропсов приложения  
+В пропсах сериса есть запись, указывающая на источников пропсов    
 spring.config.import=optional:configserver:http://localhost:8888  
 В приложении есть класс, который в свои атрибуты забирает значения из пропсов  
 src/main/java/com/github/thecoolersuptelov/limitsservice/configuration/Configuration.java    
@@ -74,7 +74,7 @@ https://github.com/TheCoolerSuptelov/currency-convertion-service/blob/main/src/m
 
 # Api-Gateway
 
-Для использовании api-gateWay нам нужен апи gateWay и прибить его связать его с EUREKA
+Для использовании api-gateWay нам нужен апи gateWay и прибить к EUREKA
 После чего все сервисы зарегистрированные в Eureka будут доступны по API gateWay
 Свойство для связывания gateWay и Eureka: `eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka`  
 Обращения к сервисам преобразуется в:  
@@ -90,7 +90,7 @@ http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
 
 Так же есть возможность добавлять свои фильтры в запросы:
 `https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/LoggingFilter.java`
-По сути развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку,
+По сути, развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку,
 логирование запросом и пр.
 
 # resilience4j
