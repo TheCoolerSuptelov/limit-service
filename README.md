@@ -160,7 +160,13 @@ kubectl apply -f deployment.yaml
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
 D:\java\petProjects\spring-cloud-config-server
-D:\java\petProjects\currency-convertion-service
+D:\java\petProjects\currency-convertion-service  
+  
+    
+https://hub.docker.com/r/in28min/mmv2-currency-exchange-service/tags
+https://github.com/in28minutes/spring-microservices-v2/tree/main/05.kubernetes
+http://109.120.190.54:32254/currency-conversion-feign/from/USD/to/INR/quantity/10
+http://109.120.190.54:32318/currency-exchange/from/USD/to/INR
 
 # Ключевые УРЛЫ проекты
 
