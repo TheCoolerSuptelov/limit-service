@@ -1,16 +1,16 @@
 # Overview проекта
 
-![Описание проекта на схеме](https://downloader.disk.yandex.ru/preview/b38dc06428c285396e67f3de6793552150538171e14a3fc34b062578f43bff8c/62d05af6/QDgCcMoq6FwTg7NWmxkMf1TES5alPAv_Njs3iiHdno83faqoKsc3nZcbmuI8PVo9geDx1mbXr_AKg6n_kP6gJw%3D%3D?uid=0&filename=2022-07-14%2021-03-34%2014.%20Step%2012%20-%20Connecting%20Currency%20Exchange%20Microservice%20with%20Zipkin.mp4%20-%20%D0%9C%D0%B5%D0%B4%D0%B8%D0%B0%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20VLC.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
+![Описание проекта на схеме]![image](https://user-images.githubusercontent.com/102233851/181576003-57712a5c-1b48-4fca-b0b9-b1efe851e261.png)
 
 # Read Me First
 
 На местном сленге пропсы - *.properties  
 Связанные репо:  
-1. Наш богоподоный сервис: [https://github.com/TheCoolerSuptelov/limit-service] 
+1. Наш богоподобный сервис: [https://github.com/TheCoolerSuptelov/limit-service] 
 2. Великолепный клауд конфиг сервер: [https://github.com/TheCoolerSuptelov/limit-service-configServer] 
 3. Несравненный файл с пропсами: [https://github.com/TheCoolerSuptelov/limits-service] 
 Один из сервисов, который зависит от клауд конфиг сервера.  
-В пропсах есть запись, указывающая на источников пропсов приложения  
+В пропсах сериса есть запись, указывающая на источников пропсов    
 spring.config.import=optional:configserver:http://localhost:8888  
 В приложении есть класс, который в свои атрибуты забирает значения из пропсов  
 src/main/java/com/github/thecoolersuptelov/limitsservice/configuration/Configuration.java    
@@ -74,7 +74,7 @@ https://github.com/TheCoolerSuptelov/currency-convertion-service/blob/main/src/m
 
 # Api-Gateway
 
-Для использовании api-gateWay нам нужен апи gateWay и прибить его связать его с EUREKA
+Для использовании api-gateWay нам нужен апи gateWay и прибить к EUREKA
 После чего все сервисы зарегистрированные в Eureka будут доступны по API gateWay
 Свойство для связывания gateWay и Eureka: `eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka`  
 Обращения к сервисам преобразуется в:  
@@ -90,7 +90,7 @@ http://localhost:8765/currency-conversion-service/from/USD/to/INR/quantity/1
 
 Так же есть возможность добавлять свои фильтры в запросы:
 `https://github.com/TheCoolerSuptelov/currency-convertion-api-gateway/blob/master/src/main/java/com/github/thecoolersuptelov/apigateway/LoggingFilter.java`
-По сути развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку,
+По сути, развявывает руки и позволяет решать вопросы: метрики, связанности сервисов через модификацию заголовку,
 логирование запросом и пр.
 
 # resilience4j
@@ -118,8 +118,37 @@ Circuit Breaker выступает как прокси-сервис между �
 Подключаем зависимости Zipkin and Sleuth, запускаем в докуере zipkin радуемся жизни.  
 У нас доступна карта общения сервисов.
 
+# K8S  
+$env:KUBECONFIG="C:\Users\supte\.kube\config" - регистрируем конфиг, если сервис предоставляет *.yaml , сносим указание типа и переименовываем  
+.\kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE - создаем девлой, с имагем из докер хаба  
+.\kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080 - открываем наше чудо миру  
+.\kubectl get service/hello-world-rest-api - узнаем на каком порту сидит  
+Если это mcs.mail, то надо зайти в "виртуальные машины" и добавить адреса. 
+ВУАЛя: http://109.120.190.54:32599/hello-world  
+  
+  
+Требуется исключить cloud зависимости из проекта, так как k8s сам менеджерит это 
+![image](https://user-images.githubusercontent.com/102233851/181574944-859bb90e-12cc-4b8d-9ee4-a37039ccd0e7.png)
+Ту да же должны отправится zipkin and rabbit.  
+По той же причине.
 
+Разворачиваем через команды:
+kubectl create deployment currency-conversion --image=in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT - создаем деплоймент.  
+kubectl expose deployment currency-conversion --type=LoadBalancer --port=8100 - публикуем деплоймент.  
+kubectl get svc - запрашиваем список сервисов для получения порта. 
+  Связь между сервисами работает, пушто кубер умный и при публикации сервиса сетит в переменные окружения (считай другим сервисам)  
+пути.  
+сервис: currency-exchange
+путь: ${CURRENCY_EXCHANGE_SERVICE_HOST}
 
+После разворачивания деплоймента получаем доступ к нашему сервису через k8s
+http://109.120.190.54:32318/currency-exchange/from/USD/to/INR  
+http://109.120.190.54:32254/currency-conversion-feign/from/USD/to/INR/quantity/10  
+  
+  
+  
+  
+  
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
