@@ -2,6 +2,7 @@
 
 ![Описание проекта на схеме](https://downloader.disk.yandex.ru/preview/b38dc06428c285396e67f3de6793552150538171e14a3fc34b062578f43bff8c/62d05af6/QDgCcMoq6FwTg7NWmxkMf1TES5alPAv_Njs3iiHdno83faqoKsc3nZcbmuI8PVo9geDx1mbXr_AKg6n_kP6gJw%3D%3D?uid=0&filename=2022-07-14%2021-03-34%2014.%20Step%2012%20-%20Connecting%20Currency%20Exchange%20Microservice%20with%20Zipkin.mp4%20-%20%D0%9C%D0%B5%D0%B4%D0%B8%D0%B0%D0%BF%D1%80%D0%BE%D0%B8%D0%B3%D1%80%D1%8B%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20VLC.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048)
 
+
 # Read Me First
 
 На местном сленге пропсы - *.properties  
@@ -125,6 +126,10 @@ $env:KUBECONFIG="C:\Users\supte\.kube\config" - регистрируем кон�
 .\kubectl get service/hello-world-rest-api - узнаем на каком порту сидит  
 Если это mcs.mail, то надо зайти в "виртуальные машины" и добавить адреса. 
 ВУАЛя: http://109.120.190.54:32599/hello-world  
+  
+  
+Требуется исключить cloud зависимости из проекта, так как k8s сам менеджерит это 
+![image](https://user-images.githubusercontent.com/102233851/181574944-859bb90e-12cc-4b8d-9ee4-a37039ccd0e7.png)
 
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
