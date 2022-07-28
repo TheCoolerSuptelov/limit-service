@@ -136,9 +136,13 @@ $env:KUBECONFIG="C:\Users\supte\.kube\config" - регистрируем кон�
 kubectl create deployment currency-conversion --image=in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT - создаем деплоймент.  
 kubectl expose deployment currency-conversion --type=LoadBalancer --port=8100 - публикуем деплоймент.  
 kubectl get svc - запрашиваем список сервисов для получения порта. 
+  Связь между сервисами работает, пушто кубер умный и при публикации сервиса сетит в переменные окружения (считай другим сервисам)  
+пути.  
+сервис: currency-exchange
+путь: ${CURRENCY_EXCHANGE_SERVICE_HOST}
 
 После разворачивания деплоймента получаем доступ к нашему сервису через k8s
-http://109.120.190.54:32318/currency-exchange/from/USD/to/INR
+http://109.120.190.54:32318/currency-exchange/from/USD/to/INR  
 http://109.120.190.54:32254/currency-conversion-feign/from/USD/to/INR/quantity/10  
   
   
