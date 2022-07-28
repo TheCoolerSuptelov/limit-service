@@ -132,9 +132,19 @@ $env:KUBECONFIG="C:\Users\supte\.kube\config" - регистрируем кон�
 Ту да же должны отправится zipkin and rabbit.  
 По той же причине.
 
-  После разворачивания деплоймента получаем доступ к нашему сервису через k8s
-http://109.120.190.54:32318/currency-exchange/from/USD/to/INR
+Разворачиваем через команды:
+kubectl create deployment currency-conversion --image=in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT - создаем деплоймент.  
+kubectl expose deployment currency-conversion --type=LoadBalancer --port=8100 - публикуем деплоймент.  
+kubectl get svc - запрашиваем список сервисов для получения порта. 
 
+После разворачивания деплоймента получаем доступ к нашему сервису через k8s
+http://109.120.190.54:32318/currency-exchange/from/USD/to/INR
+http://109.120.190.54:32254/currency-conversion-feign/from/USD/to/INR/quantity/10  
+  
+  
+  
+  
+  
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
 D:\java\petProjects\limits-service  
