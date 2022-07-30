@@ -152,7 +152,7 @@ kubectl get deployment currency-exchange -o yaml >> deployment.yaml
 kubectl get service currency-exchange -o yaml >> service.yaml  
 Смержить их в 1 файл.  
 После чего запускать апдейт 1 командой.  
-kubectl apply -f deployment.yaml     
+kubectl apply -f deployment.yaml    
   
   
   
