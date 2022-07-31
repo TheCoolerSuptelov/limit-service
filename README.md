@@ -159,8 +159,10 @@ kubectl apply -f deployment.yaml
 Можно сгенерировать файл с пропсами командой:  
 kubectl create configmap currency-conversion --from-literal=CURRENCY_EXCHANGE_URI=http://currency-exchange  
 kubectl.exe get configmap currency-conversion -o yaml >> configmap.yaml  
-После чего положить её в deployment и привязать параметры через тег envFrom: к значениям в этой мапе
+После чего положить её в deployment и привязать параметры через тег envFrom: к значениям в этой мапе  
 
+Автоскэлинг (горизонтальное масштабирование)  
+Можем сделать горизонтальное масштабирование по подам, в по условиям.
   
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
