@@ -23,16 +23,18 @@ spec:
         app: currency-conversion
     spec:
       containers:
-        - image: in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT
+        - image: in28min/mmv2-currency-conversion-service:0.0.12-SNAPSHOT
           imagePullPolicy: IfNotPresent
           name: mmv2-currency-conversion-service
+          env:
+            - name: CURRENCY_EXCHANGE_URI
+              value: http://currency-exchange
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2022-07-28T15:51:57Z"
   finalizers:
     - service.kubernetes.io/load-balancer-cleanup
   labels:
@@ -42,17 +44,13 @@ metadata:
   selfLink: /api/v1/namespaces/default/services/currency-conversion
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 10.254.2.184
-  clusterIPs:
-    - 10.254.2.184
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-    - nodePort: 32318
-      port: 8100
+    - port: 8100
       protocol: TCP
       targetPort: 8100
   selector:
@@ -63,3 +61,11 @@ status:
   loadBalancer:
     ingress:
       - ip: 185.130.114.79
+---
+apiVersion: v1
+data:
+  CURRENCY_EXCHANGE_URI: http://currency-exchange
+kind: ConfigMap
+metadata:
+  name: currency-conversion
+  namespace: default
