@@ -28,7 +28,7 @@ spec:
           name: mmv2-currency-conversion-service
           envFrom:
             - configMapRef:
-                name:currency0conversion
+                name: currency0conversion
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 ---
