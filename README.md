@@ -145,6 +145,8 @@ kubectl get svc - запрашиваем список сервисов для п
 http://109.120.190.54:32318/currency-exchange/from/USD/to/INR  
 http://109.120.190.54:32254/currency-conversion-feign/from/USD/to/INR/quantity/10  
   
+   
+   
   
   
 Мы можем сгенерировать deployment & service команды через:  
@@ -154,7 +156,13 @@ kubectl get service currency-exchange -o yaml >> service.yaml
 После чего запускать апдейт 1 командой.  
 kubectl apply -f deployment.yaml    
   
-  
+Можно сгенерировать файл с пропсами командой:  
+kubectl create configmap currency-conversion --from-literal=CURRENCY_EXCHANGE_URI=http://currency-exchange  
+kubectl.exe get configmap currency-conversion -o yaml >> configmap.yaml  
+После чего положить её в deployment и привязать параметры через тег envFrom: к значениям в этой мапе  
+
+Автоскэлинг (горизонтальное масштабирование)  
+Можем сделать горизонтальное масштабирование по подам, в по условиям.
   
 Файловый путь проектов  
 D:\java\petProjects\cloud\limits-service  
